@@ -3,7 +3,7 @@ import 'package:yaml/yaml.dart';
 ///
 /// YamlMap extension
 ///
-extension YamlExt on YamlMap {
+extension YamlExtn on YamlMap {
   ///
   /// Recursive method for converting nodes
   ///
