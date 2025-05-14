@@ -1,33 +1,35 @@
+
 import 'package:yaml/yaml.dart';
 
-///
-/// YamlMap extension
-///
-extension YamlExtn on YamlMap {
-  ///
-  /// Recursive method for converting nodes
-  ///
-  dynamic _convertNode(dynamic node) {
-    if (node is YamlMap) {
-      return node.toMap();
-    } else if (node is YamlList) {
-      final list = <dynamic>[];
-      for (var item in node) {
-        list.add(_convertNode(item));
-      }
-      return list;
-    }
-    return node;
-  }
 
-  ///
-  /// Converting a string in the "yaml" format to Map
-  ///
-  Map<String, dynamic> toMap() {
-    var map = <String, dynamic>{};
-    nodes.forEach((key, node) {
-      map[(key as YamlScalar).value.toString()] = _convertNode(node.value);
-    });
-    return map;
+///
+///
+///
+dynamic _convertNode(dynamic node) {
+  if (node is YamlMap) {
+    return _toMap(node);
+  } else if (node is YamlList) {
+    final list = <dynamic>[];
+    for (var item in node) {
+      list.add(_convertNode(item));
+    }
+    return list;
   }
+  return node;
 }
+
+///
+///
+///
+Map<String, dynamic> _toMap(YamlMap yamlMap) {
+  var map = <String, dynamic>{};
+  yamlMap.nodes.forEach((key, node) {
+    map[(key as YamlScalar).value.toString()] = _convertNode(node.value);
+  });
+  return map;
+}
+
+///
+///
+///
+Map<String, dynamic> yamlToMap(String yaml) => _toMap(loadYaml(yaml));

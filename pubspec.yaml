@@ -1,6 +1,6 @@
 name: yaml_extension
 description: Provides additional capabilities for yaml package.
-version: 1.0.0
+version: 1.0.3
 repository: https://github.com/iLnaar/yaml_extension
 
 environment:
