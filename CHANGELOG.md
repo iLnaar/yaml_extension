@@ -1,5 +1,3 @@
-# yaml_extension  Change log
-|
 ## 1.1.0
 - Refactoring
 - MIT License
