@@ -1,15 +1,15 @@
 name: yaml_extension
 description: Provides additional capabilities for yaml package.
-version: 1.0.3
+version: 1.1.0
 repository: https://github.com/iLnaar/yaml_extension
 
 environment:
-  sdk: '>=2.14.4 <3.0.0'
+  sdk: ^3.13.7
 
 dev_dependencies:
   lints: ^1.0.0
   test: ^1.16.0
 
 dependencies:
+  object_extension: ^1.0.3
   yaml: ^3.1.4
-  #
